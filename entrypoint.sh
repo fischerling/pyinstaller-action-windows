@@ -40,6 +40,8 @@ if [[ "$PYPI_URL" != "https://pypi.python.org/" ]] || \
 fi
 
 cd $WORKDIR
+pwd
+ls -l
 
 if [ -f $5 ]; then
     pip install -r $5
@@ -48,6 +50,7 @@ fi # [ -f $5 ]
 
 
 # if [[ "$@" == "" ]]; then
+echo pyinstaller --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
 pyinstaller --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
 chown -R --reference=. ./dist/windows
 # else
