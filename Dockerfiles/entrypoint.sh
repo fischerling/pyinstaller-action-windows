@@ -51,16 +51,16 @@ echo "${WORKDIR}"
 cd "$WORKDIR"
 pwd
 
+ls -l
+
 if [ -f "${REQUIREMENTS}" ]; then
     pip install -r "${REQUIREMENTS}"
 fi
 
-
-
 if [[ "$*" == "" ]]; then
     bash
 else
-    echo pyinstaller ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp "${SPEC_FILE}"
-    pyinstaller ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp "${SPEC_FILE}"
+    echo pyinstaller --log-level DEBUG ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp "${SPEC_FILE}"
+    pyinstaller --log-level DEBUG ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp "${SPEC_FILE}"
     chown -R --reference=. ./dist/windows
 fi
