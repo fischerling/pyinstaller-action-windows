@@ -19,11 +19,6 @@ SPEC_FILE=${4:-*.spec}
 
 REQUIREMENTS=${5:-requirements.txt}
 
-SINGLE_FILE_ARG=""
-if [ "${6:-false}" = "true" ]; then
-    SINGLE_FILE_ARG="-F"
-fi
-
 python -m pip install --upgrade pip wheel setuptools
 
 #
@@ -57,6 +52,6 @@ fi
 if [[ "$*" == "" ]]; then
     bash
 else
-    pyinstaller ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp ${SPEC_FILE}
+    pyinstaller --clean -y --dist ./dist/windows --workpath /tmp ${SPEC_FILE}
     chown -R --reference=. ./dist/windows
 fi

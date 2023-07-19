@@ -25,10 +25,6 @@ inputs:
     description: 'Specify a file path for requirements.txt file'
     required: False
     default: "requirements.txt"
-  single_file:
-    description: 'Build a single file bundle'
-    required: False
-    default: "false"
 outputs:
   output:
     description: 'The output of PyInstaller'
@@ -42,4 +38,3 @@ runs:
     - ${{ inputs.pypi_index_url }}
     - ${{ inputs.spec }}
     - ${{ inputs.requirements }}
-    - ${{ inputs.single_file }}
