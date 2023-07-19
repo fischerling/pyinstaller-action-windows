@@ -57,6 +57,6 @@ fi
 if [[ "$*" == "" ]]; then
     bash
 else
-    pyinstaller ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp "${SPEC_FILE}"
+    pyinstaller ${SINGLE_FILE_ARG} --clean -y --dist ./dist/windows --workpath /tmp ${SPEC_FILE}
     chown -R --reference=. ./dist/windows
 fi
