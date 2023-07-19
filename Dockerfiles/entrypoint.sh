@@ -20,7 +20,7 @@ SPEC_FILE=${4:-*.spec}
 REQUIREMENTS=${5:-requirements.txt}
 
 SINGLE_FILE_ARG=""
-if [ "${6:-False}" = "True" ]; then
+if [ "${6:-false}" = "true" ]; then
     SINGLE_FILE_ARG="-F"
 fi
 
